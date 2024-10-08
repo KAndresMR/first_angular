@@ -1,0 +1,8 @@
+<br/>
+Codigo: <input type="number" [(ngModel)]="codigo"><br/>
+Descripcion: <input type="text" [(ngModel)]="descripcion"><br/>
+Precio: <input type="number" [(ngModel)]="precio"><br/>
+<br/>
+
+<button (click)="actualizarGuardarArticulo()">Guardar</button>
+<button *ngIf="codigo" (click)="eliminarArticulo()">Eliminar</button>

@@ -1,0 +1,7 @@
+img {
+    width: 100px; /* Ajusta este valor según el tamaño que desees */
+    height: auto; /* Mantiene la proporción correcta */
+    max-width: 100%; /* Se ajusta al tamaño máximo del contenedor */
+    display: block; /* Asegura que no haya espacio blanco debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
