@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';//
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -11,31 +11,30 @@ import { FormsModule } from '@angular/forms';//
   styleUrl: './formulario.component.scss'
 })
 export class FormularioComponent{
+  @Input() codigo: number | null = null; 
+  @Input() descripcion: string = ''; 
+  @Input() precio: number | null = null; 
+  @Output() guardarArticulo = new EventEmitter<{ codigo: number; descripcion: string; precio: number }>();// Emite evento al guardar
+  @Output() borrarArticulo = new EventEmitter<number>(); // Emite evento al borrar 
 
-
-  @Input() codigo: number | null = null; // Código recibido desde el padre
-  @Input() descripcion: string = ''; // Descripción recibida desde el padre
-  @Input() precio: number | null = null; // Precio recibido desde el padre
-
-  @Output() guardarArticulo = new EventEmitter<{ codigo: number; descripcion: string; precio: number }>();
-  @Output() borrarArticulo = new EventEmitter<number>(); // Para eliminar un artículo
-
-
-  actualizarGuardarArticulo() {
+  guardar() {
     const articulo = {
       codigo: this.codigo!,
       descripcion: this.descripcion,
       precio: this.precio!
     };
-    this.guardarArticulo.emit(articulo); // Emitimos el artículo al padre
+    this.guardarArticulo.emit(articulo); // Emitimos el artículo al padre     
+    this.limpiarFormulario(); // Limpiamos los inputs después de guardar 
   }
 
-  eliminarArticulo() {
-    if (this.codigo !== null) {
-      this.borrarArticulo.emit(this.codigo); // Emitimos el código del artículo al padre
-    }
-  
+  limpiarFormulario() {
+    this.codigo = null;
+    this.descripcion = '';
+    this.precio = null;
   }
+
+
+
 
 
 

@@ -229,24 +229,20 @@
       <h1>Hello, {{ vari }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
       <p>Estudiante, {{vari}}</p>      
-      
       <p>
         Edad = {{edad}} {{esMayorDeEdad()}}<br/>
         Salario mensual= {{salario}}<br/>
         Salario anual = {{salario * 12}}<br/>
       </p>
-
       <p> Lista 1</p><strong> Aplicacion:</strong><u> especificaciones</u> estrictas.........
       <p>Lista 2</p><strong> Materiales:</strong>bajo supervizacion jadjdkdd <u> fragiles</u>
       <p> Lista 3</p><strong> Residuos:</strong><u> de laboratorio altamente peligrosos</u>
-
       <p>Seccion EDAD</p>
 <p>
   <strong>Edad=</strong> {{edad}} {{esMayorDeEdad()}}<br>
   <strong>Salario mensual=</strong> {{salario}}<br>
   <strong>Salario anual=</strong> {{salario *12}} <br>
 </p>
-<hr>
 
 <p (click)="incrementar()">
   <strong>Edad= </strong> {{edad}} <span *ngIf="edad <18"> Es menor de edad</span><br />
@@ -256,13 +252,8 @@
   <li *ngFor="let sueldo of sueldos"> {{sueldo*contador}}</li>
 </ul>
 
-
-
-
-<hr>
-<p>
-  {{contador}}
-  <button (click)="incrementar()"> Incrementar</button>
+<p>  
+  <button (click)="incrementar()"> Incrementar</button>{{contador}}
 </p>
 <hr>
 <form>
@@ -276,15 +267,7 @@
   <br />
   <button (click)=" sumar()"> Sumar</button>
 </form>
-<hr />
-
-
-
-
-
-
-
-
+<hr/>
 
 <table border="1">
   <tr>
@@ -298,7 +281,6 @@
     <td>{{ articulo.descripcion }}</td>
     <td>{{ articulo.precio }}</td>
     <td>
-
       <button (click)="cargarArticulo(articulo.codigo)">Seleccionar</button>
       <button class="eliminar-btn" (click)="borrarArticulo(articulo.codigo)">Eliminar</button>
     </td>
@@ -313,43 +295,58 @@
   [precio]="precio"
   (guardarArticulo)="actualizarGuardarArticulo($event)"
   (borrarArticulo)="borrarArticulo($event)">
+  (limpiar)="limpiarFormulario($event)">
 </app-formulario>
 
+<hr/>
 
+<app-dado #dado1 ></app-dado>
+<app-dado #dado2 ></app-dado>
+<app-dado #dado3 ></app-dado>
 
+<br>
 
-
-
-
-
-<app-dado #dado1 color="red" ></app-dado>
-<app-dado #dado2 color="blue" ></app-dado>
-<app-dado #dado3 color="black" ></app-dado>
-
-<hr>
 <button (click)="dado1.lanzar()">Lanzar 1</button>
 <button (click)="dado2.lanzar()">Lanzar 2</button>
 <button (click)="dado3.lanzar()">Lanzar 3</button><br/>
-<button (click)="dado1.lanzar();dado2.lanzar();dado3.lanzar()">Lanzar todos</button>
-
-
-<div>
-  <app-dado #dado1></app-dado>
-  <app-dado #dado2></app-dado>
-  <app-dado #dado3></app-dado>
-</div>
-
 <button (click)="lanzar()">Lanzar Dados</button>
 
 <p *ngIf="mensaje">{{ mensaje }}</p>
 
+<hr/>
+
+{{minuto}} min.
+<app-cronometro (minuto) = "actualizar($event)"></app-cronometro>
+
+
+<hr/>
+
+<table border="1">
+  <tr>
+    <th>Nombre</th>
+    <th>Raza</th>
+    <th>Foto</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let perro of perros">
+    <td>{{ perro.nombre }}</td>
+    <td>{{ perro.raza }}</td>    
+    <td>      
+      <img src="{{perro.foto}}" width="50px"><img/>
+    </td>    
+    <td>
+      <button>Seleccionar</button>
+      <button>Eliminar</button>
+    </td>
+  </tr>
+</table>
 
 
 
-  <hr/>
-    {{minuto}} min.
-    <app-cronometro (minuto) = "actualizar($event)"></app-cronometro>
-    
+
+
+
+
 
 
     </div>
