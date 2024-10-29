@@ -22,7 +22,7 @@ export class GestionPerrosService {
         foto: data.message
     })    
   }
-
+  //Servicios de perros
   getPerros() {
     return this.perros
   }
