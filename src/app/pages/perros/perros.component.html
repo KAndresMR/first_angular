@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <!-- Título -->
+    <h1 class="text-center mb-4">Gestión de Perros</h1>
+  
+    <!-- Formulario -->
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">
+        <h4 class="card-title mb-0">Agregar Nuevo Perro</h4>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="guardarPerro()">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              [(ngModel)]="nuevoPerro.nombre"
+              name="nombre"
+              class="form-control"
+              placeholder="Ingresa el nombre"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="raza" class="form-label">Raza</label>
+            <input
+              type="text"
+              id="raza"
+              [(ngModel)]="nuevoPerro.raza"
+              name="raza"
+              class="form-control"
+              placeholder="Ingresa la raza"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success w-100">Guardar Perro</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Lista de Perros -->
+    <h2 class="text-center">Lista de Perros</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Raza</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let perro of listaPerros">
+            <td>{{ perro.nombre }}</td>
+            <td>{{ perro.raza }}</td>
+            <td class="text-center">
+              <button class="btn btn-danger btn-sm" (click)="eliminarPerro(perro.id)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Mensaje si no hay perros -->
+    <div *ngIf="listaPerros.length === 0" class="alert alert-info text-center mt-3">
+      No hay perros registrados.
+    </div>
+  </div>
+  

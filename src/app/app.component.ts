@@ -6,12 +6,13 @@ import { DadoComponent } from './components//dado/dado.component';
 import { CronometroComponent } from './components/cronometro/cronometro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { GestionPerrosService } from './services/gestion-perros.service';
+import { PerrosComponent } from './pages/perros/perros.component';
 
 
 @Component({
   selector: 'app-root', 
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, DadoComponent, CronometroComponent, FormularioComponent, RouterModule],  
+  imports: [RouterOutlet, CommonModule, FormsModule, DadoComponent, CronometroComponent, FormularioComponent, RouterModule, PerrosComponent],  
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
