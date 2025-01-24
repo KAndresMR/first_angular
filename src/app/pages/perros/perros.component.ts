@@ -3,6 +3,7 @@ import { Perro } from '../../model/perros';
 import { PerroService } from '../../services/perro.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { doc, updateDoc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-perros',
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class PerrosComponent implements OnInit{
   nuevoPerro: Perro = new Perro();
   listaPerros: any[] = []; // Almacena la lista de perros
+  
 
   constructor(private perroService: PerroService) {}
 
@@ -50,4 +52,8 @@ export class PerrosComponent implements OnInit{
         });
     }
   }
+
+  
+
+  
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { Perro } from '../model/perros';
 import { Observable } from 'rxjs';
 
@@ -28,6 +28,12 @@ export class PerroService {
   eliminarPerro(id: string) {
     const docRef = doc(this.firestore, `${this.collectionName}/${id}`);
     return deleteDoc(docRef);
+  }
+
+  //Editar perro
+  editarPerro(id: string, perro: Partial<Perro>){
+    const perroDoc = doc(this.firestore, `perro/${id}`);
+    return updateDoc(perroDoc, perro);
   }
 
 
